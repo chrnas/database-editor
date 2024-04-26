@@ -1,0 +1,77 @@
+<div>
+      <mat-form-field >
+        <mat-label>Tables</mat-label>
+        <mat-select [(value)]="selectedTableName" (selectionChange)="initGrid()">
+            <mat-option *ngFor="let tableName of tableNames" [value]="tableName">{{tableName}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      <button mat-icon-button matTooltip="Add new table" (click)="onAddNewTable()">
+        <mat-icon>add</mat-icon>
+      </button>
+
+      <button mat-icon-button matTooltip="Delete Table" (click)="deleteSelectedTable()">
+        <mat-icon>delete_forever</mat-icon>
+      </button>
+
+      <button mat-icon-button matTooltip="Refresh tables info" (click)="init()">
+        <mat-icon>refresh</mat-icon>
+      </button>
+  </div>
+  
+  <div>
+    <button mat-icon-button
+    matTooltip="Load Data" (click)="loadData()">
+      <mat-icon>refresh</mat-icon>
+    </button>
+  
+    <button mat-icon-button matTooltip="Add row" (click)="addEmptyRow()">
+      <mat-icon>add</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Copy selected rows" (click)="copySelectedRows()">
+      <mat-icon>add_circle_outline</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Delete selected rows" (click)="deleteSelectedRows()">
+      <mat-icon>delete</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Add column" (click)="onAddColumn()">
+      <mat-icon>add_box</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Delete selected column" (click)="onDeleteColumn()">
+      <mat-icon>delete_outline</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Export selected rows to excel" (click)="exportExcel()">
+      <mat-icon>description</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Export selected rows to Csv" (click)="exportCsv()">
+      <mat-icon>download</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Export selexted rows to json" (click)="exportJson()">
+      <mat-icon>code</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Export selected rows to PDF" (click)="exportPdf()">
+      <mat-icon>picture_as_pdf</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Log selected to console" (click)="logSelectedRows()">
+      <mat-icon>comment</mat-icon>
+    </button>
+  </div>
+
+<div>
+    <ag-grid-angular
+        style="width: 100%; height: 100%;"
+        class="ag-theme-alpine"
+        [rowData]="rowData$ | async"
+        [columnDefs]="columnDefs"
+        [defaultColDef]="defaultColDef"
+        [rowSelection]="'multiple'"
+        [suppressRowClickSelection]="true"
+        [animateRows]="true"
+        [rowHeight]="rowHeight"
+        [pagination]="true"
+        domLayout="autoHeight"
+        (gridReady)="onGridReady($event)"
+        (cellClicked)="onCellClicked($event)"
+        (cellValueChanged)="onCellValueChanged($event)"
+    ></ag-grid-angular>
+</div>

@@ -1,0 +1,98 @@
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+    <mat-tab label="Database Table Editor">
+      <app-grid></app-grid>
+    </mat-tab>
+    <mat-tab label="Connect to database">
+      <form>
+        <h1 style="text-align: center">Connect to azure postgreeSql database</h1>
+      
+        <div class="formDiv">
+          <mat-form-field>
+            <mat-label>Host</mat-label>
+            <input
+              style="text-align: centered"
+              matInput
+              [formControl]="hostControl"
+              matInput
+              placeholder=""
+            />
+          </mat-form-field>
+        </div>
+      
+        <div class="formDiv">
+          <mat-form-field>
+            <mat-label>User</mat-label>
+            <input
+              matInput
+              [formControl]="userControl"
+              matInput
+              placeholder=""
+            />
+          </mat-form-field>
+        </div>
+      
+        <div class="formDiv">
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              [formControl]="passwordControl"
+              matInput
+              placeholder=""
+            />
+          </mat-form-field>
+        </div>
+      
+        <div class="formDiv">
+          <mat-form-field>
+            <mat-label>Port</mat-label>
+            <input
+              matInput
+              [formControl]="portControl"
+              matInput
+              placeholder=""
+            />
+          </mat-form-field>
+        </div>
+      
+        <div class="formDiv">
+          <mat-form-field>
+            <mat-label>Database</mat-label>
+            <input
+              matInput
+              [formControl]="databaseControl"
+              matInput
+              placeholder=""
+            />
+          </mat-form-field>
+        </div>
+      
+        <ngx-dropzone class="dropzone" (change)="onSelect($event)" >
+          <ngx-dropzone-label>Drop ssl certificate</ngx-dropzone-label>
+          <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+            <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+          </ngx-dropzone-preview>
+        </ngx-dropzone>
+      
+        <div class="formDiv">
+          <button mat-flat-button aria-label="Filter" (click)="connect()">
+            Connect <mat-icon>add_circle_outline</mat-icon>
+          </button>
+        </div>
+        <div class="formDiv">
+          <button mat-flat-button aria-label="Filter" (click)="disconnect()">
+            Disconnect <mat-icon>add_circle_outline</mat-icon>
+          </button>
+          <button mat-flat-button aria-label="Filter" (click)="autoconnect()">
+            AutoConnect <mat-icon>add_circle_outline</mat-icon>
+          </button>
+        </div>
+      </form>
+    </mat-tab>
+    <mat-tab label="Database Information">
+      <app-chart></app-chart>
+    </mat-tab>
+    <mat-tab label="Query executer">
+      <app-query-executer></app-query-executer>
+    </mat-tab>
+  </mat-tab-group>

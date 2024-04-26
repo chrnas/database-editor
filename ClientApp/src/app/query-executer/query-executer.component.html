@@ -1,0 +1,17 @@
+<h1>Execute a query</h1>
+<form class="Execute a query">
+    <mat-form-field class="example-full-width">
+      <mat-label>Execute query</mat-label>
+      <textarea [formControl]="queryControl" matInput placeholder="Type a query..."></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Query result</mat-label>
+        <textarea [value]="queryResultText" matInput placeholder="See result of query..."></textarea>
+        <p>{{ queryResultText }}</p>
+    </mat-form-field>
+
+    <button mat-flat-button aria-label="Execute query" (click)="executeQuery()">
+        Execute <mat-icon>send</mat-icon>
+    </button>
+</form>

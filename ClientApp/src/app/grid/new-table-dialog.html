@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>New table</h1>
+
+<div mat-dialog-content>
+    <div>
+        <mat-form-field>
+            <mat-label>Table name</mat-label>
+            <input
+            matInput
+            [formControl]="tableNameControl"
+            placeholder=""
+            />
+        </mat-form-field>
+    </div> 
+<div mat-dialog-actions>    
+    <button mat-icon-button matTooltip="Add Column" (click)="onAddTableClick()">
+        <mat-icon>check</mat-icon>
+    </button>
+
+      <button mat-icon-button matTooltip="Cancel" (click)="onCancelClick()">
+        <mat-icon>close</mat-icon>
+      </button>
+  </div>

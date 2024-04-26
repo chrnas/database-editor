@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>New Column</h1>
+
+<mat-dialog-content>
+    <div>
+        <mat-form-field>
+            <mat-label>Column Name</mat-label>
+            <input
+            matInput
+            [formControl]="columnNameControl"
+            placeholder=""
+            />
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-select placeholder="Datatype"
+        [formControl]="dataTypeControl">
+            <mat-option value="integer">integer</mat-option>
+            <mat-option value="text">text</mat-option>
+            <mat-option value="boolean">boolean</mat-option>
+            <mat-option value="date">date</mat-option>
+        </mat-select>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>  
+    <button mat-icon-button matTooltip="Add Column" (click)="onAddColumnClick()">
+        <mat-icon>check</mat-icon>
+    </button>
+
+    <button mat-icon-button matTooltip="Cancel" (click)="onCancelClick()">
+        <mat-icon>close</mat-icon>
+    </button>
+</mat-dialog-actions>  

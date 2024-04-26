@@ -1,0 +1,15 @@
+.formDiv {
+    text-align: center;
+  }
+
+.dropzone {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:11%;
+    height:auto;
+  }
+
+  .cdk-global-overlay-wrapper, .cdk-overlay-container {
+    z-index: 99999 !important;
+}

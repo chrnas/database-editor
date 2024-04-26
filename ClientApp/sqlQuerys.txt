@@ -1,0 +1,10 @@
+//Get all tablenames
+`SELECT table_name FROM information_schema.tables
+WHERE table_schema = 'public'`
+
+//Get column names and data types from schemaName and tableName
+`SELECT column_name, data_type FROM information_schema.columns 
+WHERE table_schema = '${schemaName}' AND table_name = '${tableName}';`
+
+//Get nr of rows in table selectedTableName
+`SELECT COUNT(*) from ${selectedTableName}`
