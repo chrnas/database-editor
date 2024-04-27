@@ -1,0 +1,31 @@
+{
+    "sqltools.connections": [
+        {
+            "pgOptions": {
+                "ssl": true
+            },
+            "previewLimit": 50,
+            "server": "tambourdb.postgres.database.azure.com",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "database": "cvdatabase",
+            "username": "chrnas",
+            "name": "cvdatabase"
+        },
+        {
+            "pgOptions": {
+                "ssl": {
+                    "rejectUnauthorized": true,
+                    "ca": "C:\\Users\\chris\\Coding\\JavascriptProjects\\databaseeditor\\BackEndServer\\DigiCertGlobalRootCA.crt.pem"
+                }
+            },
+            "previewLimit": 50,
+            "server": "tambourdb.postgres.database.azure.com",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "tambourdb",
+            "database": "postgres",
+            "username": "chrnas"
+        }
+    ]
+}

@@ -94,22 +94,6 @@ export class NavMenuComponent {
     return this.http.get<Object[]>(this.baseUrl + 'disconnect');
   }
 
-  autoconnect() {
-    this.connectService({
-      params: {
-        Host: 'tambourdb.postgres.database.azure.com',
-        Port: '5432',
-        Database: 'postgres',
-        User: 'chrnas',
-        Password: 'TambourHero1400!',
-        Ssl: this.sslCertificate,
-      },
-    }).subscribe((result: any) => {
-      console.log(result);
-    });
-    this.init();
-  }
-
   init() {
     this.getTableInfo();
     this.gridComponent.initFirst();

@@ -9,16 +9,6 @@ app.use(express.json());
 const PORT = 3000;
 var client;
 
-client = new Client({
-    host: "tambourdb.postgres.database.azure.com",
-    user: "chrnas",
-    password: "TambourHero1400!",
-    port: 5432,
-    database: "postgres",
-    ssl: { ca: fs.readFileSync("DigiCertGlobalRootCA.crt.pem") },
-  });
-client.connect();
-
 //Get request handling connection to database
 app.get("/connect", (req, res) => {
   const config = {
